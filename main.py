@@ -18,9 +18,9 @@ html = """
 <body>
     <h2>{{ q['text'] }}</h2>
     <form method="POST">
-        {% for i, opt in enumerate(q['options']) %}
+        {% for opt in q['options'] %}
             <label>
-                <input type="radio" name="choice" value="{{ i + 1 }}" required>
+                <input type="radio" name="choice" value="{{ loop.index }}" required>
                 {{ opt }}
             </label><br>
         {% endfor %}
@@ -51,3 +51,4 @@ def quiz():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
